@@ -1,0 +1,42 @@
+<div class="container">
+    <form id="form-transacao">
+        <div>
+            <h1>Cadastro de Transações</h1>
+        </div>
+        <ul class="flex-outer">
+            <li>
+                <label for="numberdoc">Nota Fiscal</label>
+                <input type="text" id="numberdoc" name="nota" placeholder="Informe o nº da nota" required>
+            </li>
+            <li>
+                <label for="issuedate">Data de Emissão</label>
+                <input type="date" id="issuedate" name="emissao" placeholder="Informe a data de emissão" required>
+            </li>
+            <li>
+                <label for="clientname">Nome do Cliente/ Razão Social</label>
+                <select type="text" id="clientname" name="cliente" required></select>
+                <!-- <input type="text" id="clientname" placeholder="Digite o nome do cliente" required> -->
+            </li>
+            <li>
+                <label for="duedate">Data de Vencimento</label>
+                <input type="date" id="duedate" name="vencimento" placeholder="Digite o Nome" required>
+            </li>
+            <li>
+                <label for="value">Valor</label>
+                <input type="text" id="value" name="valor" placeholder="Digite o valor" required>
+            </li>
+            <li>
+                <label for="bank">Banco</label>
+                <select name="banco" id="bank"></select>
+                <!-- <input type="text" id="bank" placeholder="Informe o banco" required> -->
+            </li>
+            <li class="container-button-group">
+                <div class="button-group">""
+                    <button class="button button__outline" type="submit">Salvar</button>
+                    <button class="button button__outline">Cancelar</button>
+                    <button class="button button__outline">Sair</button>
+                </div>
+            </li>
+        </ul>
+    </form>
+</div>

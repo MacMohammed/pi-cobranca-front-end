@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../assets/css/cad_transacao.css" media="">
+    <link rel="stylesheet" type="text/css" href="../assets/css/main.css" media="">
+    <title>Bem Vindo a SGR</title>
+</head>
+<body>
+
+    <div class="wrapper">
+        <div class="side-header"></div>
+        <header>
+            <img src="img/logo.png" />
+        </header>
+        <div class="side-header"></div>
+        <div class="logo"></div>
+        <menu>
+            <ul class="menu">
+                <!-- Esse é o 1 nivel ou o nivel principal -->
+                <li onclick="location.href='../../PI-cobranca/views/form_transacao.html'"><a href="#">Nova Transação</a></li>
+                <li onclick="location.href='../../PI-cobranca/views/pag_inicial.html'"><a href="#">Voltar</a></li>
+                <li onclick="location.href='../../PI-cobranca/views/index.html'"><a href="#">Sair</a></li>
+            </ul>
+        </menu>
+        <main>
+
+            <div class="content">
+                <table class="rTable">
+                    <caption>Tabela de Transações</caption>
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nota Fiscal</th>
+                            <th>Cliente</th>
+                            <th>Data de Emissão</th>
+                            <th>Data de Vencimento</th>
+                            <th>Valor</th>
+                            <th>Banco</th>
+                            <th>Arquivo</th>
+                            <th>Status</th>
+                            <th>Editar</th>
+                        </tr>
+                    </thead>
+            
+                    <tbody>
+                        <tr>
+                            <td>1001</td>
+                            <td>2855</td>
+                            <td>Marcelo Silva Me</td>
+                            <td>15/08/2021</td>
+                            <td>29/10/2021</td>
+                            <td>R$ 2.500,00</td>
+                            <td>Banco do Brasil</td>
+                            <td>5250</td>
+                            <td>Quitado</td>
+                            <td><button class="button" >Editar</button></td>
+                        </tr>
+            
+                        <tr>
+                            <td>1029</td>
+                            <td>2966</td>
+                            <td>Fatec Ltda</td>
+                            <td>22/09/2021</td>
+                            <td>15/11/2021</td>
+                            <td>R$ 3.250,00</td>
+                            <td>Bradesco</td>
+                            <td>5388</td>
+                            <td>À Vencer</td>
+                            <td><button class="button" >Editar</button></td>
+                        </tr>
+
+                        <tr>
+                            <td>1100</td>
+                            <td>2990</td>
+                            <td>Zézinho Construções</td>
+                            <td>15/10/2021</td>
+                            <td>25/11/2021</td>
+                            <td>R$ 3.250,00</td>
+                            <td>Caixa Economica</td>
+                            <td>5401</td>
+                            <td>À Vencer</td>
+                            <td><button class="button" >Editar</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+        <footer></footer>
+    </div>
+</body>
+</html>

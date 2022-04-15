@@ -1,0 +1,53 @@
+<div class="container">
+    <form>
+        <div>
+            <h1>Cadastro de Usuário</h1>
+        </div>
+        <ul class="flex-outer">
+            <li>
+                <label for="username">Nome do Usuário</label>
+                <input type="text" id="username" placeholder="Digite o Nome" required>
+            </li>
+            <li>
+                <label for="office">Cargo</label>
+                <select name="office" id="office">
+                    <option value="0">Escolha uma opção</option>
+                    <option value="1">Gerente</option>
+                    <option value="2">Auxiliar Administrativo</option>
+                    <option value="3">Técnico em Informática</option>
+                </select>
+            </li>
+            <li>
+                <label for="useremail">E-mail</label>
+                <input type="email" id="useremail" placeholder="Digite o e-mail" required>
+            </li>
+            <li>
+                <label for="password">Senha</label>
+                <input type="password" id="password" placeholder="Digite a Senha" required>
+            </li>
+            <li>
+                <p>Status</p>
+                <ul class="flex-inner">
+                    <label class="radio-custom">
+                        <span class="radio-label">ativo</span>
+                        <input type="radio" name="status" checked>
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="radio-custom">
+                        <span class="radio-label">inativo</span>
+                        <input type="radio" name="status">
+                        <span class="checkmark"></span>
+                    </label>
+                </ul>
+            </li>
+
+            <li class="container-button-group">
+                <div class="button-group">
+                    <button class="button button__outline">Salvar</button>
+                    <button class="button button__outline">Cancelar</button>
+                    <button class="button button__outline">Sair</button>
+                </div>
+            </li>
+        </ul>
+    </form>
+</div>

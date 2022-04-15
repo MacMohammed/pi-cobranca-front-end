@@ -1,0 +1,119 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #17252A;
+    background-image: url("../views/img/logo.png");
+    background-size: 100vw 113px;
+    background-repeat: no-repeat;
+}
+
+.grid {
+    display: grid;
+}
+
+
+
+/* Menu */
+
+.menu{
+    width: 100vw;
+    margin-top: 113px;
+    background-color: yellow;
+    margin-bottom: 60px;
+}
+.menu ul{
+    padding: 0;
+}
+.menu ul ul{
+    display: none;    
+}
+.menu ul ul ul{
+    top: 0px;
+    margin-left: 20.05vw;
+    position: absolute;
+}
+.menu ul li{
+    color: white;
+    float: left;
+    font-size: 20px;
+    width: 20vw;
+    height: 30px;
+    display: block;   
+    text-align: center;
+    line-height: 30px;
+    background-color: #2b7a78;
+    position: relative;  
+}
+.menu ul li ul li{
+    background-color: #1ba8a4;
+}
+.menu ul li:hover > ul{
+    display: block;
+}
+.menu ul li:hover{
+    background-color: #c2efe7;
+    transition: background .3s;
+}
+.menu ul li ul li:hover{
+    color: black;
+}
+.menu .cad:hover, .sair:hover{
+    color: black;
+}
+.exe:hover{
+    color: indigo;
+}
+.con:hover{
+    color: darkorange;
+}
+.conf:hover{
+    color: purple;
+}
+.con .ta:hover{
+    color: green;
+}
+.con .tl:hover{
+    color: blue;
+}
+.con .tv:hover{
+    color: red;
+}
+
+/* Dashboard */
+
+// div {
+//     height: 100vh;
+//     width: 100vw;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+// }
+
+// iframe{
+//     width: 100%;
+//     height: 100%;
+// }
+
+a:link {
+    text-decoration: none;
+}
+
+.arq-gerar {
+    background-color: yellow;
+}
+
+.arq-export {
+    background-color: brown;
+}
+
+.arq-import {
+    background-color: darkcyan;
+}
+
+.arq-consult {
+    background-color: #000000;
+    color: white;
+}

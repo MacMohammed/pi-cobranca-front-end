@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" type="text/css" href="../assets/css/form_cliente.css" media="">
+    <link rel="stylesheet" type="text/css" href="../assets/css/main.css" media=""> -->
+
+    <title>Bem Vindo a SGR</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="side-header"></div>
+        <header>
+            <img src="img/logo.png" />
+        </header>
+        <div class="side-header"></div>
+        <div class="logo"></div>
+        <menu></menu>
+        <main>
+            <div class="container">
+                <form>
+                    <div>
+                        <h1>Cadastro de Clientes</h1>
+                    </div>
+                    <ul class="flex-outer">
+                        <li>
+                            <label for="clientdoc">CPF/CNPJ</label>
+                            <input type="text" id="clientdoc" placeholder="Digite o Documento" required>
+                        </li>
+                        <li>
+                            <label for="clientname">Nome do Cliente/ Razão Social</label>
+                            <input type="text" id="clientname" placeholder="Digite o Nome" required>
+                        </li>
+                        <li>
+                            <label for="clientaddress">Endereço</label>
+                            <input type="text" id="clientaddress" placeholder="Digite o Endereço" required>
+                        </li>
+                        <li>
+                            <label for="clientphone">Telefone</label>
+                            <input type="text" id="clientphone" placeholder="Digite o Telefone" required>
+                        </li>
+                        <li>
+                            <label for="clientemail">E-mail</label>
+                            <input type="text" id="clientemail" placeholder="Digite o e-mail" required>
+                        </li>
+                        <li>
+                            <p>Status</p>
+                            <ul class="flex-inner">
+                                <label class="radio-custom">
+                                    <span class="radio-label">ativo</span>
+                                    <input type="radio" name="status" checked>
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-custom">
+                                    <span class="radio-label">inativo</span>
+                                    <input type="radio" name="status">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </ul>
+                        </li>
+                        
+                        <li class="container-button-group">
+                            <div class="button-group">
+                                <button class="button button__outline">Salvar</button>
+                                <button class="button button__outline">Cancelar</button>
+                                <button class="button button__outline">Sair</button>
+                            </div>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+
+        </main>
+        <footer></footer>
+    </div>
+</body>
+</html>

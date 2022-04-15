@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" type="text/css" href="../assets/css/form_banco.css" media="">
+    <link rel="stylesheet" type="text/css" href="../assets/css/main.css" media=""> -->
+
+    <title>Bem Vindo a SGR</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="side-header"></div>
+        <header>
+            <img src="img/logo.png" />
+        </header>
+        <div class="side-header"></div>
+        <div class="logo"></div>
+        <menu></menu>
+        <main>
+            <div class="container">
+                <form>
+                    <div>
+                        <h1>Cadastro de Bancos</h1>
+                    </div>
+                    <ul class="flex-outer">
+                        <li>
+                            <label for="bankcode">Código</label>
+                            <input type="text" id="bankcode" placeholder="Digite o Código" required>
+                        </li>
+                        <li>
+                            <label for="bankname">Nome do Banco</label>
+                            <input type="text" id="bankname" placeholder="Digite o Nome do Banco" required>
+                        </li>
+                        <li>
+                            <p>Status</p>
+                            <ul class="flex-inner">
+                                <label class="radio-custom">
+                                    <span class="radio-label">ativo</span>
+                                    <input type="radio" name="status" checked>
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-custom">
+                                    <span class="radio-label">inativo</span>
+                                    <input type="radio" name="status">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </ul>
+                        </li>
+                        
+                        <li class="container-button-group">
+                            <div class="button-group">
+                                <button class="button button__outline">Salvar</button>
+                                <button class="button button__outline">Cancelar</button>
+                                <button class="button button__outline">Sair</button>
+                            </div>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+
+        </main>
+        <footer></footer>
+    </div>
+
+</body>
+
+</html>

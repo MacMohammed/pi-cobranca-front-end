@@ -163,7 +163,7 @@ class TransactionList extends HTMLElement {
   };
 
   cancelarTitulo = async (id) => {
-    const response = await fetch(`http://localhost:8001/trasancao/cancelar/${id}`, {
+    const response = await fetch(`https://pi-cobranca-back-end.herokuapp.com/trasancao/cancelar/${id}`, {
       method: "PUT",
       headers: {
         Accept: "application/json",

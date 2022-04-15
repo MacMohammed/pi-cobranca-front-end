@@ -8,6 +8,7 @@ import UserRegister from "../controllers/user/UserRegister"
 import TransacoesAbertas from "../controllers/transacoes_titulos_abertos"
 import TransacoesLiquidadas from "../controllers/transacoes_titulos_liquidados"
 import TransacoesCanceladas from "../controllers/transacoes_titulos_cancelados"
+import Login from "../controllers/login"
 
 export const navigateTo = url => {
     history.pushState(null, null, url);

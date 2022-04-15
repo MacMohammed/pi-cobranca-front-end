@@ -1,6 +1,6 @@
 import AbstractView from "./AbstractView";
 import view from '../views/form_transacao.html';
-import Modal from '../components/uteis/Modal'
+// import Modal from '../components/uteis/Modal'
 
 export default class extends AbstractView {
     constructor() {
@@ -91,9 +91,7 @@ export default class extends AbstractView {
             }
             return response.json();
         })
-        .then((data) => {
-            
-            
+        .then((data) => {            
             // alert(data)
         })
         .catch(err => {

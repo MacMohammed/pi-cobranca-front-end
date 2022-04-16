@@ -3,10 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "main": "./src/index.js",
+  "engines": {
+    "node": "16.13.2",
+    "npm": "8.1.2"
+  },
   "scripts": {
     "build": "webpack --mode production",
     "dev": "webpack serve",
-    "start": "node server.js"
+    "heroku-prebuild": "",
+    "heroku-postbuild": ""
   },
   "keywords": [],
   "author": "",
@@ -21,9 +26,6 @@
     "webpack": "^5.64.1",
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.5.0"
-  },
-  "engines": {
-    "node": "16.13.2"
   },
   "dependencies": {
     "express": "^4.17.3"

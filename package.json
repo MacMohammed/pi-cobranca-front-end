@@ -8,10 +8,9 @@
     "npm": "8.1.2"
   },
   "scripts": {
-    "build": "webpack --mode production",
     "dev": "webpack serve",
     "heroku-prebuild": "",
-    "heroku-postbuild": ""
+    "heroku-postbuild": "webpack --mode production"
   },
   "keywords": [],
   "author": "",

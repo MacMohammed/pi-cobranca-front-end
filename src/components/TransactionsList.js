@@ -145,13 +145,13 @@ class TransactionList extends HTMLElement {
   };
 
   getTransactions = async () => {
-    const resp = await fetch("http://localhost:8001/transacoes", this.options);
+    const resp = await fetch("h`https://pi-cobranca-back-end.herokuapp.com/transacoes", this.options);
     const data = await resp.json();
     return data;
   };
 
   baixarTitulo = async (id) => {
-    const response = await fetch(`http://localhost:8001/trasancao/${id}`, {
+    const response = await fetch(`https://pi-cobranca-back-end.herokuapp.com/trasancao/${id}`, {
       method: "PUT",
       headers: {
         Accept: "application/json",

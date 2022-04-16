@@ -8,7 +8,7 @@ import UserRegister from "../controllers/user/UserRegister"
 import TransacoesAbertas from "../controllers/transacoes_titulos_abertos"
 import TransacoesLiquidadas from "../controllers/transacoes_titulos_liquidados"
 import TransacoesCanceladas from "../controllers/transacoes_titulos_cancelados"
-import Login from "../controllers/login"
+// import Login from "../controllers/login"
 
 export const navigateTo = url => {
     history.pushState(null, null, url);
@@ -17,8 +17,9 @@ export const navigateTo = url => {
 
 export const router = async () => {
     const routes = [
-        { path: "/", view: Login },
-        { path: "/login", view: Login },
+        // { path: "/", view: Login },
+        // { path: "/login", view: Login },
+        { path: "/", view: GerarArquivo },
         { path: "/gerar-arquivo", view: GerarArquivo },
         { path: "/exportar-arquivo", view: ExportarArquivo },
         { path: "/importar-arquivo", view: ImportarArquivo },

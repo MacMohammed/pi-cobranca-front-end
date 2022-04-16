@@ -145,7 +145,7 @@ class TransactionList extends HTMLElement {
   };
 
   getTransactions = async () => {
-    const resp = await fetch("h`https://pi-cobranca-back-end.herokuapp.com/transacoes", this.options);
+    const resp = await fetch("https://pi-cobranca-back-end.herokuapp.com/transacoes", this.options);
     const data = await resp.json();
     return data;
   };

@@ -1,6 +1,6 @@
 import AbstractView from "./AbstractView";
 import view from '../views/form_transacao.html';
-// import Modal from '../components/uteis/Modal'
+import Modal from '../components/uteis/Modal'
 
 export default class extends AbstractView {
     constructor() {
@@ -51,22 +51,25 @@ export default class extends AbstractView {
     }
 
     getBancos = async () => {
-        const response = await fetch('https://pi-cobranca-back-end.herokuapp.com/bancos', this.options);
+        const response = await fetch('http://localhost:8001/bancos', this.options);
         const data = await response.json();
 
         return data;
     }
 
     getClientes = async () => {
-        const response = await fetch('https://pi-cobranca-back-end.herokuapp.com/clientes', this.options);
+        const response = await fetch('http://localhost:8001/clientes', this.options);
         const data = await response.json();
 
         return data;
     }
 
     postTransacao = async (f) => {
+
+        console.log(f);
+
         const data = Object.fromEntries(new FormData(f));
-        const url = "https://pi-cobranca-back-end.herokuapp.com/transacao"
+        const url = "http://localhost:8001/transacao"
         
         const options = {
             method: 'POST',
@@ -87,12 +90,12 @@ export default class extends AbstractView {
         fetch(url, options)
         .then(response => {
             if (!response.ok) {
-                throw new Error('Falha na requisição')
+                throw new Error('Não foi possível cadastrar a transação.')
             }
             return response.json();
         })
-        .then((data) => {            
-            // alert(data)
+        .then((data) => {
+            alert(data);
         })
         .catch(err => {
             alert(err)

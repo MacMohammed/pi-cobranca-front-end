@@ -8,9 +8,10 @@ import UserRegister from "../controllers/user/UserRegister"
 import TransacoesAbertas from "../controllers/transacoes_titulos_abertos"
 import TransacoesLiquidadas from "../controllers/transacoes_titulos_liquidados"
 import TransacoesCanceladas from "../controllers/transacoes_titulos_cancelados"
-// import Login from "../controllers/login"
+import Login from "../controllers/login"
 
 export const navigateTo = url => {
+    console.log(url)
     history.pushState(null, null, url);
     router();
 }
@@ -18,8 +19,7 @@ export const navigateTo = url => {
 export const router = async () => {
     const routes = [
         // { path: "/", view: Login },
-        // { path: "/login", view: Login },
-        { path: "/", view: GerarArquivo },
+        // // { path: "/login", view: Login },
         { path: "/gerar-arquivo", view: GerarArquivo },
         { path: "/exportar-arquivo", view: ExportarArquivo },
         { path: "/importar-arquivo", view: ImportarArquivo },
@@ -48,10 +48,10 @@ export const router = async () => {
         };
     }
 
-    const view = new match.route.view();
 
+    const view = new match.route.view();
     let root = document.querySelector("#root");
     root.innerHTML = "";
-
     root.appendChild(await view.getHtml());
+    
 }

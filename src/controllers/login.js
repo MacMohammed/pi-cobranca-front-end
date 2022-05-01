@@ -73,7 +73,7 @@ export default class extends AbstractView {
         console.log(data);
 
 
-        const response = await fetch('http://localhost:8001/login', {
+        const response = await fetch('https://pi-cobranca-back-end.herokuapp.com/login', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

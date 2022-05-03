@@ -87,7 +87,7 @@ export default class extends AbstractView {
         fetch(url, options)
         .then(response => {
             if (!response.ok) {
-                throw new Error('Não foi possível cadastrar a transação.');
+                throw new Error(`Não foi possível cadastrar a nota ${data.nota}.`);
             }
             return response.json();
         })

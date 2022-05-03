@@ -1,6 +1,6 @@
 import AbstractView from "./AbstractView";
 import view from '../views/form_transacao.html';
-import Modal from '../components/uteis/Modal'
+import Modal from '../components/modal/Modal'
 
 export default class extends AbstractView {
     constructor() {
@@ -65,9 +65,6 @@ export default class extends AbstractView {
     }
 
     postTransacao = async (f) => {
-
-        console.log(f);
-
         const data = Object.fromEntries(new FormData(f));
         const url = "https://pi-cobranca-back-end.herokuapp.com/transacao"
         
@@ -90,7 +87,7 @@ export default class extends AbstractView {
         fetch(url, options)
         .then(response => {
             if (!response.ok) {
-                throw new Error('Não foi possível cadastrar a transação.')
+                throw new Error('Não foi possível cadastrar a transação.');
             }
             return response.json();
         })
@@ -98,7 +95,24 @@ export default class extends AbstractView {
             alert(data);
         })
         .catch(err => {
-            alert(err)
+            if (document.getElementsByTagName("x-modal")[0]) {
+                document.getElementsByTagName("x-modal")[0].remove();
+            }
+
+            const modal = document.createElement('x-modal');
+            const divModalTitle = document.createElement('div');
+            const divModalBody = document.createElement('div');
+
+            divModalTitle.slot = "title";
+            divModalTitle.innerHTML = "Transação negada...";
+
+            divModalBody.slot = "body";
+            divModalBody.innerHTML = `${err}`;
+
+            modal.appendChild(divModalTitle);
+            modal.appendChild(divModalBody);
+
+            document.body.append(modal);
         })
     }
 

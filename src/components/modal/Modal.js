@@ -71,7 +71,7 @@ class Modal extends HTMLElement {
           height: 100%;
           overflow: auto;
           background-color: rgb(0,0,0);
-          background-color: rgba(0,0,0,0.4);
+          background-color: rgba(0,0,0,0.6);
           font-family: Verdana,sans-serif;
           font-size: 15px;
           line-height: 1.5;
@@ -136,9 +136,9 @@ class Modal extends HTMLElement {
         <div class="modal-content">
           <div id="mydivheader">
             <slot name="title">
-              <div>Default title</div>
+              <div></div>
             </slot>
-            <span id='closeBtn' class="button display-topright" style='color:white;font-size:18px;top: -32px;float:right;padding: 7px 16px;'>×</span>
+            <span id='closeBtn' class="button display-topright" style='color:white;font-size:18px;top: -32px;float:right;padding: 7px 16px;'>X</span>
           </div>
           <div id="container" style='background-color:white;'>
             <slot name='body'>

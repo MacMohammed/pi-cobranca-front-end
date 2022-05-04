@@ -51,22 +51,44 @@ export default class extends AbstractView {
     }
 
     getBancos = async () => {
-        const response = await fetch('https://pi-cobranca-back-end.herokuapp.com/bancos', this.options);
+        const response = await fetch('http://localhost:8001/bancos', this.options);
         const data = await response.json();
 
         return data;
     }
 
     getClientes = async () => {
-        const response = await fetch('https://pi-cobranca-back-end.herokuapp.com/clientes', this.options);
+        const response = await fetch('http://localhost:8001/clientes', this.options);
         const data = await response.json();
 
         return data;
     }
 
+
+    runModal (msgBody, title) {
+        if (document.getElementsByTagName("x-modal")[0]) {
+            document.getElementsByTagName("x-modal")[0].remove();
+        }
+
+        const modal = document.createElement('x-modal');
+        const divModalTitle = document.createElement('div');
+        const divModalBody = document.createElement('div');
+
+        divModalTitle.slot = "title";
+        divModalTitle.innerHTML = title;
+
+        divModalBody.slot = "body";
+        divModalBody.innerHTML = `${msgBody}`;
+
+        modal.appendChild(divModalTitle);
+        modal.appendChild(divModalBody);
+
+        document.body.append(modal);
+    }
+
     postTransacao = async (f) => {
         const data = Object.fromEntries(new FormData(f));
-        const url = "https://pi-cobranca-back-end.herokuapp.com/transacao"
+        const url = "http://localhost:8001/transacao"
         
         const options = {
             method: 'POST',
@@ -92,27 +114,10 @@ export default class extends AbstractView {
             return response.json();
         })
         .then((data) => {
-            alert(data);
+            this.runModal(data, "Transação cadastrada...");
         })
         .catch(err => {
-            if (document.getElementsByTagName("x-modal")[0]) {
-                document.getElementsByTagName("x-modal")[0].remove();
-            }
-
-            const modal = document.createElement('x-modal');
-            const divModalTitle = document.createElement('div');
-            const divModalBody = document.createElement('div');
-
-            divModalTitle.slot = "title";
-            divModalTitle.innerHTML = "Transação negada...";
-
-            divModalBody.slot = "body";
-            divModalBody.innerHTML = `${err}`;
-
-            modal.appendChild(divModalTitle);
-            modal.appendChild(divModalBody);
-
-            document.body.append(modal);
+            this.runModal(err, "Transação negada...", );
         })
     }
 

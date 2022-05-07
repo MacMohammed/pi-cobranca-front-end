@@ -51,14 +51,14 @@ export default class extends AbstractView {
     }
 
     getBancos = async () => {
-        const response = await fetch('http://localhost:8001/bancos', this.options);
+        const response = await fetch('https://pi-cobranca-back-end.herokuapp.com/bancos', this.options);
         const data = await response.json();
 
         return data;
     }
 
     getClientes = async () => {
-        const response = await fetch('http://localhost:8001/clientes', this.options);
+        const response = await fetch('https://pi-cobranca-back-end.herokuapp.com/clientes', this.options);
         const data = await response.json();
 
         return data;
@@ -88,7 +88,7 @@ export default class extends AbstractView {
 
     postTransacao = async (f) => {
         const data = Object.fromEntries(new FormData(f));
-        const url = "http://localhost:8001/transacao"
+        const url = "https://pi-cobranca-back-end.herokuapp.com/transacao"
         
         const options = {
             method: 'POST',

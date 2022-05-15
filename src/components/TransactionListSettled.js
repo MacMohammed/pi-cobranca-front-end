@@ -81,7 +81,6 @@ class TransactionListSettled extends HTMLElement {
                                 ? data
                                     .filter(e => e.liquidado === 'true')
                                     .map((e) => {
-                                    console.log(e.liquidado)
                                     return `<tr id="${e.id}">
                                                 <td>${e.id}</td>
                                                 <td>${e["dt-hr-reg"]}</td>

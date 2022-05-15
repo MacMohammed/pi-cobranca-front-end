@@ -1,3 +1,5 @@
+import { urls } from '../api/server';
+
 class TransactionListSettled extends HTMLElement {
     constructor() {
         super()
@@ -101,7 +103,7 @@ class TransactionListSettled extends HTMLElement {
       }
 
     getTransactions = async () => {
-        const resp = await fetch("https://pi-cobranca-back-end.herokuapp.com/transacoes", this.options);
+        const resp = await fetch(urls.transacao.trasacoes, this.options);
         const data = await resp.json();
         return data;
     };

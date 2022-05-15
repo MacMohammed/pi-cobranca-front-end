@@ -1,3 +1,4 @@
+import { urls } from '../api/server';
 
 class TransactionList extends HTMLElement {
   constructor() {
@@ -145,13 +146,13 @@ class TransactionList extends HTMLElement {
   };
 
   getTransactions = async () => {
-    const resp = await fetch("https://pi-cobranca-back-end.herokuapp.com/transacoes", this.options);
+    const resp = await fetch(urls.transacao.trasacoes, this.options);
     const data = await resp.json();
     return data;
   };
 
   baixarTitulo = async (id) => {
-    const response = await fetch(`https://pi-cobranca-back-end.herokuapp.com/trasancao/${id}`, {
+    const response = await fetch(`${urls.transacao.baixar}/${id}`, {
       method: "PUT",
       headers: {
         Accept: "application/json",
@@ -163,7 +164,7 @@ class TransactionList extends HTMLElement {
   };
 
   cancelarTitulo = async (id) => {
-    const response = await fetch(`https://pi-cobranca-back-end.herokuapp.com/trasancao/cancelar/${id}`, {
+    const response = await fetch(`${urls.transacao.cancelar}/${id}`, {
       method: "PUT",
       headers: {
         Accept: "application/json",

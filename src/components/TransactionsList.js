@@ -110,7 +110,6 @@ class TransactionList extends HTMLElement {
                           ? data
                               .filter((e) => e.liquidado === "false" && e.cancelado === "false")
                               .map((e) => {
-                                console.log(e)
                                 return `<tr id="${e.id}">
                                           <td>${e.id}</td>
                                           <td>${e["dt-hr-reg"]}</td>

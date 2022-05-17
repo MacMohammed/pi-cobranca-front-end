@@ -18,8 +18,8 @@ export const navigateTo = url => {
 
 export const router = async () => {
     const routes = [
-        { path: "/login", view: Login },
-        { path: "/", view: Login },
+        // { path: "/login", view: Login },
+        // { path: "/", view: Login },
         { path: "/gerar-arquivo", view: GerarArquivo },
         { path: "/exportar-arquivo", view: ExportarArquivo },
         { path: "/importar-arquivo", view: ImportarArquivo },

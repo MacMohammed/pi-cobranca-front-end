@@ -59,6 +59,17 @@ class TransactionListSettled extends HTMLElement {
                     .styled-table tbody tr:hover td, .table tbody tr:hover th {
                         background-color: #eeeeea;
                     }
+
+                    input[type=submit] {
+                        border: none;
+                        cursor: pointer;
+                        background-color: transparent;
+                        color: #3498db;
+                      }
+  
+                    input:hover[type="submit"] {
+                        color: red;
+                    }
                 </style>
 
                 <div>
@@ -74,6 +85,7 @@ class TransactionListSettled extends HTMLElement {
                             <th>Cliente</th>
                             <th>Banco</th>
                             <th>Liquidado Em</th>
+                            <th>Estornar</th>
                         </thead>
                         <tbody>
                             ${
@@ -81,6 +93,7 @@ class TransactionListSettled extends HTMLElement {
                                 ? data
                                     .filter(e => e.liquidado === 'true')
                                     .map((e) => {
+                                    console.log(e.liquidado)
                                     return `<tr id="${e.id}">
                                                 <td>${e.id}</td>
                                                 <td>${e["dt-hr-reg"]}</td>
@@ -91,6 +104,9 @@ class TransactionListSettled extends HTMLElement {
                                                 <td>${e.cliente}</td>
                                                 <td>${e.banco}</td>
                                                 <td>${e["liquidado-em"]}</td>
+                                                <td>
+                                                    <input type="submit" data-action="estornar" value="Estornar" />
+                                                </td>
                                             </tr>`;
                                     })
                                     .join("")

@@ -1,9 +1,10 @@
 import AbstractView from "./AbstractView";
 import view from '../views/form_transacao.html';
+
 import { urls } from '../api/server';
-
-
 import Modal from '../components/modal/Modal'
+import { runModal } from "../uteis/uteis";
+import { navigateTo } from "../router/index.routes";
 
 export default class extends AbstractView {
     constructor() {
@@ -19,7 +20,16 @@ export default class extends AbstractView {
         }
     }
 
+
     async getHtml() {
+
+        const token = localStorage.getItem('token');
+
+        if (token === null) {
+            navigateTo('/login')
+            return;
+        }
+
         const element = document.createElement('div');
         element.innerHTML = view;
 
@@ -67,28 +77,6 @@ export default class extends AbstractView {
         return data;
     }
 
-
-    runModal (msgBody, title) {
-        if (document.getElementsByTagName("x-modal")[0]) {
-            document.getElementsByTagName("x-modal")[0].remove();
-        }
-
-        const modal = document.createElement('x-modal');
-        const divModalTitle = document.createElement('div');
-        const divModalBody = document.createElement('div');
-
-        divModalTitle.slot = "title";
-        divModalTitle.innerHTML = title;
-
-        divModalBody.slot = "body";
-        divModalBody.innerHTML = `${msgBody}`;
-
-        modal.appendChild(divModalTitle);
-        modal.appendChild(divModalBody);
-
-        document.body.append(modal);
-    }
-
     postTransacao = async (f) => {
         const data = Object.fromEntries(new FormData(f));
         const url = urls.transacao.cadastrar
@@ -105,9 +93,21 @@ export default class extends AbstractView {
                 "nota": data.nota,
                 "banco": data.banco,
                 "cliente": data.cliente,
-                "valor": parseFloat(data.valor),
+                "valor": parseFloat(data.valor.replace(',', '.')),
             })
         }
+
+        /*Validação das datas de emissão e vencimento*/
+        const dtEmissao = new Date(data.emissao);
+        const dtVencimento = new Date(data.vencimento);
+
+        if (dtEmissao > dtVencimento) {
+            const formatDataEmissao = `${(dtEmissao.getDate()+1)}/${dtEmissao.getMonth()+1}/${dtEmissao.getFullYear()}`;
+            const formatDataVencimento = `${(dtVencimento.getDate()+1)}/${dtVencimento.getMonth()+1}/${dtVencimento.getFullYear()}`;
+            runModal(`A data de emissão (${formatDataEmissao}) não pode ser maior que a data de vencimento (${formatDataVencimento})`, "Transação cadastrada...");
+            return;
+        }
+
 
         fetch(url, options)
         .then(response => {
@@ -117,10 +117,10 @@ export default class extends AbstractView {
             return response.json();
         })
         .then((data) => {
-            this.runModal(data, "Transação cadastrada...");
+            runModal(data, "Transação cadastrada...");
         })
         .catch(err => {
-            this.runModal(err, "Transação negada...", );
+            runModal(err, "Transação negada...", );
         })
     }
 

@@ -1,5 +1,5 @@
 
-const urlBase = "https://pi-cobranca-front-end.herokuapp.com";
+const urlBase = "https://pi-cobranca-back-end.herokuapp.com/";
 
 
 export const urls = {

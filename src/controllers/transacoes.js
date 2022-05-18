@@ -40,7 +40,7 @@ export default class extends AbstractView {
 
         bancos.map(x => {
             let option = document.createElement("option");
-            option.appendChild(document.createTextNode(x.Name));
+            option.appendChild(document.createTextNode(`${x.Cod} - ${x.Name}`));
             option.setAttribute("value", x.Id_bank);
             selectBancos.insertBefore(option, selectBancos.lastChild)
         });

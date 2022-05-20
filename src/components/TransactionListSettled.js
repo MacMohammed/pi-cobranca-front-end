@@ -1,24 +1,35 @@
-import { urls } from '../api/server';
+import { urls } from "../api/server";
 
 class TransactionListSettled extends HTMLElement {
-    constructor() {
-        super()
-        this.attachShadow({mode:'open'})
+  constructor() {
+    super();
+    this.attachShadow({ mode: "open" });
+    this.setTemplate();
+
+    this.shadowRoot.addEventListener("click", (event) => {
+      event.preventDefault();
+      const id_transacao = event.composedPath()[2]["id"];
+
+      this.extornarTitulo(id_transacao).then((result) => {
+        alert(result);
         this.setTemplate();
-    }
+      });
 
-    options = {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-    };
+    });
+  }
 
-    async setTemplate() {
-        const data = await this.getTransactions();
-    
-        this.shadowRoot.innerHTML = `
+  options = {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+  };
+
+  async setTemplate() {
+    const data = await this.getTransactions();
+
+    this.shadowRoot.innerHTML = `
                 <style>
                     h3 {
                         color: #009879;
@@ -89,12 +100,12 @@ class TransactionListSettled extends HTMLElement {
                         </thead>
                         <tbody>
                             ${
-                            data
+                              data
                                 ? data
-                                    .filter(e => e.liquidado === 'true')
+                                    .filter((e) => e.liquidado === "true")
                                     .map((e) => {
-                                    console.log(e.liquidado)
-                                    return `<tr id="${e.id}">
+                                      console.log(e.liquidado);
+                                      return `<tr id="${e.id}">
                                                 <td>${e.id}</td>
                                                 <td>${e["dt-hr-reg"]}</td>
                                                 <td>${e.emissao}</td>
@@ -115,13 +126,25 @@ class TransactionListSettled extends HTMLElement {
                         </tbody>
                     </table>
                 </div>`;
-      }
+  }
 
-    getTransactions = async () => {
-        const resp = await fetch(urls.transacao.trasacoes, this.options);
-        const data = await resp.json();
-        return data;
-    };
+  getTransactions = async () => {
+    const resp = await fetch(urls.transacao.trasacoes, this.options);
+    const data = await resp.json();
+    return data;
+  };
+
+  extornarTitulo = async (id) => {
+    const response = await fetch(`${urls.transacao.extornar}/${id}`, {
+      method: "PUT",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    });
+    const json = await response.json();
+    return json;
+  };
 }
 
-customElements.define('transaction-list_settled', TransactionListSettled)
+customElements.define("transaction-list_settled", TransactionListSettled);

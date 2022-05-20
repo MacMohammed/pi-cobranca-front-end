@@ -226,12 +226,11 @@ class Login extends HTMLElement {
     fetch(url, options)
     .then(response => {
         if (!response.ok) {
-            // if (response.status == 403) {
-            //     throw new Error('Senha ou login inválidos.');
-            // } else {
-            //     throw new Error('Não foi possível logar no sistema.');
-            // }
-            throw new Error('Senha ou login inválidos.');
+            if (response.status == 403) {
+                throw new Error('Senha ou login inválidos.');
+            } else {
+                throw new Error('Não foi possível logar no sistema.');
+            }
         }
         return response.json();
     })

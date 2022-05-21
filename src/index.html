@@ -1,20 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bem Vindo a SGR</title>
 </head>
+
 <body>
     <div class="wrapper">
         <header>
             <img src="./assets/img/logo.png" />
+            <div style="display: flex; margin-left: 20px; margin-bottom: 5px;" id="saldacao">
+                <label style="margin-right: 30px; color: white" id="label-name">Bem vindo</label>
+                <button style="cursor: pointer;
+                border: none;background-color: transparent;
+                height: -11px;
+                width: 12px;
+                color: white;" id="btn-sair">Sair</button>
+            </div>
         </header>
-        <div class="logo"></div>
         <menu>
             <ul class="menu">
-                <!-- Esse é o 1 nivel ou o nivel principal -->
                 <li><a href="#">Executar</a>
                     <ul class="submenu-1">
                         <li><a href="/gerar-arquivo" data-link>Gerar Arquivo</a></li>
@@ -25,13 +33,11 @@
                 </li>
                 <li><a href="#">Consulta</a>
                     <ul class="submenu-1">
-                        <!-- Esse é o 2 nivel ou o primeiro Drop Down -->
+
                         <li><a href="#">Relatórios de Títulos</a>
                             <ul class="submenu-2">
-                                <!-- Esse é o 3 nivel ou o Segundo Drop Down -->
                                 <li><a href="#">Títulos em Aberto</a>
                                     <ul class="submenu-3">
-                                        <!-- Esse é o 4 nivel ou o Terceiro Drop Down -->
                                         <li><a href="#">Pesquisa Por Cliente</a></li>
                                         <li><a href="#">Pesquisa Por Período</a></li>
                                         <li><a href="#">Pesquisa Por XXX</a></li>
@@ -39,7 +45,6 @@
                                 </li>
                                 <li><a href="#">Títulos Liquidados</a>
                                     <ul class="submenu-3">
-                                        <!-- Esse é o 4 nivel ou o Terceiro Drop Down -->
                                         <li><a href="#">Pesquisa Por Cliente</a></li>
                                         <li><a href="#">Pesquisa Por Período</a></li>
                                         <li><a href="#">Pesquisa Por XXX</a></li>
@@ -47,7 +52,6 @@
                                 </li>
                                 <li><a href="#">Títulos Vencidos</a>
                                     <ul class="submenu-3">
-                                        <!-- Esse é o 4 nivel ou o Terceiro Drop Down -->
                                         <li><a href="#">Pesquisa Por Cliente</a></li>
                                         <li><a href="#">Pesquisa Por Período</a></li>
                                         <li><a href="#">Pesquisa Por XXX</a></li>
@@ -72,16 +76,13 @@
                         <li><a href="/cadastro-banco" data-link>Bancos</a></li>
                         <li><a href="/cadastro-transacao" data-link>Transações</a></li>
                     </ul>
-                </li>
+                </li>   
             </ul>
         </menu>
         <main>
-          <div id="root">
-              <!-- Aqui é enchertado o conteúdo das páginas -->
-          </div>
+            <div id="root"></div>
         </main>
-        <footer>
-        </footer>
     </div>
 </body>
+
 </html>

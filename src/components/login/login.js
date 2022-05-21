@@ -235,10 +235,21 @@ class Login extends HTMLElement {
         return response.json();
     })
     .then((data) => {
+
         window.localStorage.setItem('token', JSON.stringify(data.token));
         this.style.display = "none";
         document.querySelector("menu").style.display = "block";
+
+        let labelName = document.querySelector("#label-name");
+        labelName.innerHTML = "";
+        labelName.innerHTML = `Bem vindo ${data.name}`
+
+
+
+
+        document.getElementById("saldacao").style.display = "block"
         // navigateTo(`${window.location.href}cadastro-transacao`);
+
         navigateTo('/cadastro-transacao');
     })
     .catch((err) => {

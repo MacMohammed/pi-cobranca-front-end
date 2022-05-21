@@ -1,5 +1,5 @@
 
-const urlBase = "https://pi-cobranca-back-end.herokuapp.com";
+const urlBase = "http://localhost:8001";
 
 
 export const urls = {

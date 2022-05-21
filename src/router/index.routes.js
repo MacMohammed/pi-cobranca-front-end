@@ -51,6 +51,11 @@ export const router = async () => {
 
     const view = new match.route.view();
 
+    if (match.route.path == "/" || match.route.path == "/login") {
+        let menu = document.querySelector("menu");
+        menu.style.display = "none";
+    }
+
     let root = document.querySelector("#root");
     root.innerHTML = "";
 

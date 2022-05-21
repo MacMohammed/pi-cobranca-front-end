@@ -237,6 +237,7 @@ class Login extends HTMLElement {
     .then((data) => {
         window.localStorage.setItem('token', JSON.stringify(data.token));
         this.style.display = "none";
+        document.querySelector("menu").style.display = "block";
         // navigateTo(`${window.location.href}cadastro-transacao`);
         navigateTo('/cadastro-transacao');
     })

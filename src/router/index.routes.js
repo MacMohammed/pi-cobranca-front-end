@@ -12,7 +12,6 @@ import TransacoesCanceladas from "../controllers/transacoes_titulos_cancelados"
 
 export const navigateTo = url => {
     history.pushState(null, null, url);
-    console.log(url);
     router();
 }
 

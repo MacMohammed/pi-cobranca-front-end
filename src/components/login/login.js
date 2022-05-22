@@ -244,9 +244,6 @@ class Login extends HTMLElement {
         labelName.innerHTML = "";
         labelName.innerHTML = `Bem vindo ${data.name}`
 
-
-
-
         document.getElementById("saldacao").style.display = "block"
         // navigateTo(`${window.location.href}cadastro-transacao`);
 

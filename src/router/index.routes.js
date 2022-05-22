@@ -9,6 +9,7 @@ import UserRegister from "../controllers/user/UserRegister"
 import TransacoesAbertas from "../controllers/transacoes_titulos_abertos"
 import TransacoesLiquidadas from "../controllers/transacoes_titulos_liquidados"
 import TransacoesCanceladas from "../controllers/transacoes_titulos_cancelados"
+import Home from "../controllers/home/Home"
 
 export const navigateTo = url => {
     history.pushState(null, null, url);
@@ -19,6 +20,7 @@ export const router = async () => {
     const routes = [
         { path: "/login", view: Login },
         { path: "/", view: Login },
+        {path: "/home", view: Home},
         { path: "/gerar-arquivo", view: GerarArquivo },
         { path: "/exportar-arquivo", view: ExportarArquivo },
         { path: "/importar-arquivo", view: ImportarArquivo },

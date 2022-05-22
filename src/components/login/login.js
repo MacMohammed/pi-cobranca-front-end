@@ -245,9 +245,7 @@ class Login extends HTMLElement {
         labelName.innerHTML = `Bem vindo(a) ${data.name}`
 
         document.getElementById("saldacao").style.display = "block"
-        // navigateTo(`${window.location.href}cadastro-transacao`);
-
-        navigateTo('/cadastro-transacao');
+        navigateTo('/home');
     })
     .catch((err) => {
         runModal(err, "Não foi possível fazer o login")

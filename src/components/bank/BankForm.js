@@ -1,6 +1,6 @@
 class BankForm extends HTMLElement {
     constructor() {
-        super()
+        super();
     }
 
     connectedCallback() {

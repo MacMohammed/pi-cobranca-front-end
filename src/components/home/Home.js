@@ -238,8 +238,7 @@ class Home extends HTMLElement {
           ...new Set(data.map((item) => item["dt-hr-reg"].split(" ")[0])),
         ];
 
-        const backgroundColor = this._setColumsChartColors(labels);
-
+        const colors = this._setColumsChartColors(labels);
         const dataChart = [];
 
         labels.map((l) => {
@@ -256,24 +255,34 @@ class Home extends HTMLElement {
             datasets: [
               {
                 label,
-                backgroundColor,
-                borderColor: "rgb(255, 99, 132)",
+                backgroundColor: colors[0],
+                borderColor: colors[1],
+                borderWidth: 2,
                 data: dataChart,
+                fill: false,
+                barThickness: 90,
               },
             ],
           },
 
           options: {
+            plugins: {
+              legend: {
+                display: true,
+                labels: {
+                  color: "rgb(0, 0, 0)",
+                },
+                position: "top",
+                fullSize: true,
+                align: "center",
+              },
+            },
             responsive: true,
             maintainAspectRatio: false,
             scales: {
-              yAxes: [
-                {
-                  ticks: {
-                    beginAtZero: true,
-                  },
-                },
-              ],
+              y: {
+                beginAtZero: true,
+              },
             },
           },
         });
@@ -295,25 +304,33 @@ class Home extends HTMLElement {
         labels: ["Verde", "Azul", "Amarelo"],
         datasets: [
           {
-            label: "Gráfico",
+            label: "Gráfico Teste da Página Inicial",
             backgroundColor: ["green", "blue", "yellow"],
             borderColor: "rgb(255, 99, 132)",
             data: [50, 10, 62],
+            barThickness: 90,
           },
         ],
       },
 
       options: {
+        plugins: {
+          legend: {
+            display: true,
+            labels: {
+              color: "rgb(0, 0, 0)",
+            },
+            position: "top",
+            fullSize: true,
+            align: "center",
+          },
+        },
         responsive: true,
         maintainAspectRatio: false,
         scales: {
-          yAxes: [
-            {
-              ticks: {
-                beginAtZero: true,
-              },
-            },
-          ],
+          y: {
+            beginAtZero: true,
+          },
         },
       },
     });
@@ -356,15 +373,22 @@ class Home extends HTMLElement {
   // }
 
   _setColumsChartColors = (data) => {
-    const backgroundcolor = [];
+    const backgroundColor = [];
+    const borderColor = [];
+    const colors = [];
+
     data.map((x) => {
       const r = Math.floor(Math.random() * 255);
       const g = Math.floor(Math.random() * 255);
       const b = Math.floor(Math.random() * 255);
-      backgroundcolor.push("rgba(" + r + ", " + g + ", " + b + ", 0.8)");
+      backgroundColor.push("rgba(" + r + ", " + g + ", " + b + ", 0.8)");
+      borderColor.push("rgba(" + r + ", " + g + ", " + b + ", 2.0)");
     });
 
-    return backgroundcolor;
+    colors.push(backgroundColor);
+    colors.push(borderColor);
+
+    return colors;
   };
 }
 

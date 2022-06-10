@@ -334,43 +334,7 @@ class Home extends HTMLElement {
         },
       },
     });
-
-    // const ctx = this.shadowRoot.getElementById("myChart").getContext("2d");
-
-    // let chart = new Chart(ctx, {
-    //   type: "bar",
-    //   data: {
-    //     labels: ["Verde", "Azul", "Amarelo"],
-    //     datasets: [
-    //       {
-    //         label: "Gráfico",
-    //         backgroundColor: ["green", "blue", "yellow"],
-    //         borderColor: "rgb(255, 99, 132)",
-    //         data: [50, 10, 62],
-    //       },
-    //     ],
-    //   },
-
-    //   options: {
-    //     responsive: true,
-    //     maintainAspectRatio: false,
-    //     scales: {
-    //       yAxes: [
-    //         {
-    //           ticks: {
-    //             beginAtZero: true,
-    //           },
-    //         },
-    //       ],
-    //     },
-    //   },
-    // });
   }
-
-  // _getLabelsChart = (data) => {
-  //   const labels = [...new Map(data.map((item) => [item["emissao"], item])).values()];
-  //   return labels;
-  // }
 
   _setColumsChartColors = (data) => {
     const backgroundColor = [];

@@ -406,7 +406,7 @@ class BankForm extends HTMLElement {
         runModal(data, "Banco cadastrado...");
       })
       .catch((err) => {
-        runModal(err, err);
+        runModal(err, "Erro...");
       });
   };
 }

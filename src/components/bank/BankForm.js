@@ -397,7 +397,7 @@ class BankForm extends HTMLElement {
       .then((response) => {
         if (!response.ok) {
           return response.text().then((text) => {
-            throw new Error(text);
+            throw new Error(`${text.replace("\"", "")[0].toLocaleUpperCase().trim()} ${text.substring(2).replace("\"", "").trim()}.`);
           });
         }
         return response.json();
